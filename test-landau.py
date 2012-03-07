@@ -3,8 +3,8 @@
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
-parser.add_argument('-m', type=float, default=.5)
-parser.add_argument('-c', type=float, default=2)
+parser.add_argument('-m', type=float, default=2)
+parser.add_argument('-c', type=float, default=.5)
 args = parser.parse_args()
 
 from matplotlib import pyplot as plt
