@@ -7,7 +7,7 @@ def configuration(parent_package='', top_path=None):
 
     from numpy.distutils.misc_util import Configuration
     config = Configuration('landau', parent_package,top_path)
-    for path in glob('landau/*.F'):
+    for path in glob('landau/src_f/*.F'):
         config.add_extension(os.path.splitext(os.path.basename(path))[0], [path])
     return config
 
