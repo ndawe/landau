@@ -25,7 +25,7 @@ static double c_b2 = 1.5;
 
 
 /*     This will be DIFLAN,IF=DOUBLE and DIFLAN64,IF=-DOUBLE */
-double diflan_(real *x, real *x0, real *xi)
+double diflan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */
 

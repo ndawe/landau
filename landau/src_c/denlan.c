@@ -20,7 +20,7 @@
 
 
 /*     This will be DENLAN,IF=DOUBLE and DENLAN64,IF=-DOUBLE */
-doubledouble denlan_(real *x, real *x0, real *xi)
+double denlan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */
 

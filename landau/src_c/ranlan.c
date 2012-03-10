@@ -189,7 +189,7 @@ double ranlan_(double *x)
     double ret_val, r__1;
 
     /* Local variables */
-    static integer i__;
+    static int i__;
     static double u, v;
 
     u = 1000 * *x;
