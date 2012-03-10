@@ -9,12 +9,13 @@ args = parser.parse_args()
 
 from matplotlib import pyplot as plt
 import numpy as np
-from landau import denlan, diflan
+from landau import *
 
 X = np.arange(0,10,.001)
 
 plt.figure()
 plt.plot(X, [diflan(x, args.m, args.c) for x in X], label="diflan")
 plt.plot(X, [denlan(x, args.m, args.c) for x in X], label="denlan")
+plt.plot(X, [dislan(x, args.m, args.c) for x in X], label="dislan")
 plt.legend()
 plt.show()
