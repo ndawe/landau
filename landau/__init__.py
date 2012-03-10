@@ -1,13 +1,13 @@
 from _liblandau import denlan, diflan, \
-                       dislan, ranlan, \
+                       cumlan, invcumlan, \
                        xm1lan, xm2lan
 
 
 __all__ = [
     'denlan',
     'diflan',
-    'dislan',
-    'ranlan',
+    'cumlan',
+    'invcumlan',
     'xm1lan',
     'xm2lan',
 ]

@@ -5,15 +5,12 @@
 
 static double c_b2 = 1.5;
 
-
 /* $Id: diflan.F,v 1.1.1.1 1996/04/01 15:02:43 mclareni Exp $ */
 
 /* $Log: diflan.F,v $ */
 /* Revision 1.1.1.1  1996/04/01 15:02:43  mclareni */
 /* Mathlib gen */
 
-
-/*     This will be DIFLAN,IF=DOUBLE and DIFLAN64,IF=-DOUBLE */
 double diflan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */

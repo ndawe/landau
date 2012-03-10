@@ -7,8 +7,6 @@
 /* Revision 1.1.1.1  1996/04/01 15:02:44  mclareni */
 /* Mathlib gen */
 
-
-/*     This will be XM1LAN,IF=DOUBLE and XM1LAN64,IF=-DOUBLE */
 double xm1lan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */

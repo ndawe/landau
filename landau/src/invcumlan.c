@@ -1,15 +1,7 @@
 
 #include <math.h>
 
-/* $Id: dislan.F,v 1.1.1.1 1996/04/01 15:02:43 mclareni Exp $ */
-
-/* $Log: dislan.F,v $ */
-/* Revision 1.1.1.1  1996/04/01 15:02:43  mclareni */
-/* Mathlib gen */
-
-
-/*     This will be DISLAN,IF=DOUBLE and DISLAN64,IF=-DOUBLE */
-double dislan_(double *x, double *x0, double *xi)
+double invcumlan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */
 

@@ -7,8 +7,6 @@
 /* Revision 1.1.1.1  1996/04/01 15:02:43  mclareni */
 /* Mathlib gen */
 
-
-/*     This will be DENLAN,IF=DOUBLE and DENLAN64,IF=-DOUBLE */
 double denlan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */

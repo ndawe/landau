@@ -16,7 +16,6 @@ X = np.arange(0, 10, .001)
 plt.figure()
 plt.plot(X, diflan(X, args.m, args.c), label="diflan")
 plt.plot(X, denlan(X, args.m, args.c), label="denlan")
-plt.plot(X, dislan(X, args.m, args.c), label="dislan")
 plt.legend()
 
 plt.figure()
@@ -24,9 +23,13 @@ plt.plot(X, xm1lan(X, args.m, args.c), label="xm1lan")
 plt.plot(X, xm2lan(X, args.m, args.c), label="xm2lan")
 plt.legend()
 
-X = np.arange(0, 1, .001)
+plt.figure()
+plt.plot(X, cumlan(X, args.m, args.c), label="cumlan")
+plt.legend()
+
+X = np.arange(0, 1.5, .001)
 
 plt.figure()
-plt.plot(X, ranlan(X), label="ranlan")
+plt.plot(X, invcumlan(X, args.m, args.c), label="invcumlan")
 plt.legend()
 plt.show()
