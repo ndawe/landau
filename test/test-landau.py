@@ -27,7 +27,7 @@ plt.figure()
 plt.plot(X, cumlan(X, args.m, args.c), label="cumlan")
 plt.legend()
 
-X = np.arange(0, 1.5, .001)
+X = np.arange(-.05, .9, .001)
 
 plt.figure()
 plt.plot(X, invcumlan(X, args.m, args.c), label="invcumlan")
