@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 from glob import glob
-from distutils.core import setup, Extension
+from numpy.distutils.core import setup, Extension
+import numpy
+
 
 landau_ext = Extension('landau/_liblandau',
                        sources = ['landau/_liblandau.c'] + \
-                                 glob('landau/src_c/*.c'))
+                                 glob('landau/src_c/*.c'),
+                       include_dirs=[numpy.get_include()])
 
 setup(name='landau',
       author='Noel Dawe',

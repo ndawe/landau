@@ -1,4 +1,10 @@
 
+import numpy as np
+cimport numpy as np
+
+ctypedef np.float64_t DTYPE_t
+DTYPE = np.float64
+
 cdef extern double denlan_(double*, double*, double*)
 
 cdef extern double dislan_(double*, double*, double*)
@@ -12,26 +18,50 @@ cdef extern double xm1lan_(double*, double*, double*)
 cdef extern double xm2lan_(double*, double*, double*)
 
 
-def denlan(double X, double mu, double c):
+def denlan(np.ndarray[DTYPE_t, ndim=1, mode="c"] X, double mu, double c):
+    
+    cdef np.ndarray[DTYPE_t, ndim=1] out \
+            = np.empty((X.shape[0],), dtype=DTYPE, order='C')
+    for i from 0 <= i < X.shape[0]:
+        out[i] = denlan_(&X[i], &mu, &c)
+    return out
 
-    return denlan_(&X, &mu, &c)
+def dislan(np.ndarray[DTYPE_t, ndim=1, mode="c"] X, double mu, double c):
+    
+    cdef np.ndarray[DTYPE_t, ndim=1] out \
+            = np.empty((X.shape[0],), dtype=DTYPE, order='C')
+    for i from 0 <= i < X.shape[0]:
+        out[i] = dislan_(&X[i], &mu, &c)
+    return out
 
-def dislan(double X, double mu, double c):
+def diflan(np.ndarray[DTYPE_t, ndim=1, mode="c"] X, double mu, double c):
 
-    return dislan_(&X, &mu, &c)
+    cdef np.ndarray[DTYPE_t, ndim=1] out \
+            = np.empty((X.shape[0],), dtype=DTYPE, order='C')
+    for i from 0 <= i < X.shape[0]:
+        out[i] = diflan_(&X[i], &mu, &c)
+    return out
 
-def diflan(double X, double mu, double c):
+def xm1lan(np.ndarray[DTYPE_t, ndim=1, mode="c"] X, double mu, double c):
 
-    return diflan_(&X, &mu, &c)
+    cdef np.ndarray[DTYPE_t, ndim=1] out \
+            = np.empty((X.shape[0],), dtype=DTYPE, order='C')
+    for i from 0 <= i < X.shape[0]:
+        out[i] = xm1lan_(&X[i], &mu, &c)
+    return out
 
-def xm1lan(double X, double mu, double c):
+def xm2lan(np.ndarray[DTYPE_t, ndim=1, mode="c"] X, double mu, double c):
 
-    return xm1lan_(&X, &mu, &c)
+    cdef np.ndarray[DTYPE_t, ndim=1] out \
+            = np.empty((X.shape[0],), dtype=DTYPE, order='C')
+    for i from 0 <= i < X.shape[0]:
+        out[i] = xm2lan_(&X[i], &mu, &c)
+    return out
 
-def xm2lan(double X, double mu, double c):
+def ranlan(np.ndarray[DTYPE_t, ndim=1, mode="c"] X):
 
-    return xm2lan_(&X, &mu, &c)
-
-def ranlan(double X):
-
-    return ranlan_(&X)
+    cdef np.ndarray[DTYPE_t, ndim=1] out \
+            = np.empty((X.shape[0],), dtype=DTYPE, order='C')
+    for i from 0 <= i < X.shape[0]:
+        out[i] = ranlan_(&X[i])
+    return out
