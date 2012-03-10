@@ -10,8 +10,7 @@
 		http://www.netlib.org/f2c/libf2c.zip
 */
 
-#include "f2c.h"
-
+#include <math.h>
 
 /* $Id: denlan.F,v 1.1.1.1 1996/04/01 15:02:43 mclareni Exp $ */
 
@@ -21,45 +20,42 @@
 
 
 /*     This will be DENLAN,IF=DOUBLE and DENLAN64,IF=-DOUBLE */
-doublereal denlan_(real *x, real *x0, real *xi)
+doubledouble denlan_(real *x, real *x0, real *xi)
 {
     /* Initialized data */
 
-    static real p1[5] = { .4259894875f,-.124976255f,.039842437f,
+    static double p1[5] = { .4259894875f,-.124976255f,.039842437f,
 	    -.006298287635f,.001511162253f };
-    static real q5[5] = { 1.f,156.9424537f,3745.310488f,9834.698876f,
+    static double q5[5] = { 1.f,156.9424537f,3745.310488f,9834.698876f,
 	    66924.28357f };
-    static real p6[5] = { 1.000827619f,664.9143136f,62972.92665f,475554.6998f,
+    static double p6[5] = { 1.000827619f,664.9143136f,62972.92665f,475554.6998f,
 	    -5743609.109f };
-    static real q6[5] = { 1.f,651.4101098f,56974.73333f,165917.4725f,
+    static double q6[5] = { 1.f,651.4101098f,56974.73333f,165917.4725f,
 	    -2815759.939f };
-    static real a1[3] = { .04166666667f,-.01996527778f,.02709538966f };
-    static real a2[2] = { -1.84556867f,-4.284640743f };
-    static real q1[5] = { 1.f,-.3388260629f,.09594393323f,-.01608042283f,
+    static double a1[3] = { .04166666667f,-.01996527778f,.02709538966f };
+    static double a2[2] = { -1.84556867f,-4.284640743f };
+    static double q1[5] = { 1.f,-.3388260629f,.09594393323f,-.01608042283f,
 	    .003778942063f };
-    static real p2[5] = { .1788541609f,.1173957403f,.01488850518f,
+    static double p2[5] = { .1788541609f,.1173957403f,.01488850518f,
 	    -.001394989411f,1.283617211e-4f };
-    static real q2[5] = { 1.f,.7428795082f,.3153932961f,.06694219548f,
+    static double q2[5] = { 1.f,.7428795082f,.3153932961f,.06694219548f,
 	    .008790609714f };
-    static real p3[5] = { .1788544503f,.09359161662f,.006325387654f,
+    static double p3[5] = { .1788544503f,.09359161662f,.006325387654f,
 	    6.611667319e-5f,-2.031049101e-6f };
-    static real q3[5] = { 1.f,.6097809921f,.2560616665f,.04746722384f,
+    static double q3[5] = { 1.f,.6097809921f,.2560616665f,.04746722384f,
 	    .006957301675f };
-    static real p4[5] = { .9874054407f,118.6723273f,849.279436f,-743.7792444f,
+    static double p4[5] = { .9874054407f,118.6723273f,849.279436f,-743.7792444f,
 	    427.0262186f };
-    static real q4[5] = { 1.f,106.8615961f,337.6496214f,2016.712389f,
+    static double q4[5] = { 1.f,106.8615961f,337.6496214f,2016.712389f,
 	    1597.063511f };
-    static real p5[5] = { 1.003675074f,167.5702434f,4789.711289f,21217.86767f,
+    static double p5[5] = { 1.003675074f,167.5702434f,4789.711289f,21217.86767f,
 	    -22324.9491f };
 
     /* System generated locals */
-    real ret_val, r__1;
-
-    /* Builtin functions */
-    double exp(doublereal), sqrt(doublereal), log(doublereal);
+    double ret_val, r__1;
 
     /* Local variables */
-    static real u, v;
+    static double u, v;
 
     if (*xi <= 0.f) {
 	ret_val = 0.f;

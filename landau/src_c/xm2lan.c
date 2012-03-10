@@ -10,8 +10,7 @@
 		http://www.netlib.org/f2c/libf2c.zip
 */
 
-#include "f2c.h"
-
+#include <math.h>
 
 /* $Id: xm2lan.F,v 1.1.1.1 1996/04/01 15:02:45 mclareni Exp $ */
 
@@ -21,43 +20,43 @@
 
 
 /*     This will be XM2LAN,IF=DOUBLE and XM2LAN64,IF=-DOUBLE */
-doublereal xm2lan_(real *x, real *x0, real *xi)
+double xm2lan_(double *x, double *x0, double *xi)
 {
     /* Initialized data */
 
-    static real p1[5] = { 1.169837582f,-.4834874539f,.4383774644f,
+    static double p1[5] = { 1.169837582f,-.4834874539f,.4383774644f,
 	    .003287175228f,.01879129206f };
-    static real q5[4] = { 1.f,360.5950254f,13927.84158f,-18816.80027f };
-    static real a0[7] = { -2.043403138f,-.8455686702f,-.3088626596f,
+    static double q5[4] = { 1.f,360.5950254f,13927.84158f,-18816.80027f };
+    static double a0[7] = { -2.043403138f,-.8455686702f,-.3088626596f,
 	    5.821346754f,.4227843351f,6.552993748f,-10.76714945f };
-    static real a1[3] = { -.4583333333f,.6675347222f,-1.641741416f };
-    static real a2[4] = { -1.958333333f,5.563368056f,-21.11352961f,
+    static double a1[3] = { -.4583333333f,.6675347222f,-1.641741416f };
+    static double a2[4] = { -1.958333333f,5.563368056f,-21.11352961f,
 	    100.6946266f };
-    static real a3[4] = { -1.f,4.458333333f,-21.16753472f,116.3674359f };
-    static real q1[5] = { 1.f,.1795154326f,.04612795899f,.002183459337f,
+    static double a3[4] = { -1.f,4.458333333f,-21.16753472f,116.3674359f };
+    static double q1[5] = { 1.f,.1795154326f,.04612795899f,.002183459337f,
 	    7.226623623e-5f };
-    static real p2[5] = { 1.157939823f,-.3842809495f,.3317532899f,
+    static double p2[5] = { 1.157939823f,-.3842809495f,.3317532899f,
 	    .03547606781f,.006725645279f };
-    static real q2[5] = { 1.f,.2916824021f,.0525985348f,.003840011061f,
+    static double q2[5] = { 1.f,.2916824021f,.0525985348f,.003840011061f,
 	    9.950324173e-5f };
-    static real p3[4] = { 1.178191282f,10.11623342f,-12.85585291f,
+    static double p3[4] = { 1.178191282f,10.11623342f,-12.85585291f,
 	    36.41361437f };
-    static real q3[4] = { 1.f,8.614160194f,31.1892963f,.15143513f };
-    static real p4[5] = { 1.030763698f,121.675866f,1637.431386f,-2171.466507f,
+    static double q3[4] = { 1.f,8.614160194f,31.1892963f,.15143513f };
+    static double p4[5] = { 1.030763698f,121.675866f,1637.431386f,-2171.466507f,
 	    7010.168358f };
-    static real q4[5] = { 1.f,102.2487911f,1377.64635f,3699.184961f,
+    static double q4[5] = { 1.f,102.2487911f,1377.64635f,3699.184961f,
 	    4251.31561f };
-    static real p5[4] = { 1.010084827f,394.4224824f,17730.25353f,
+    static double p5[4] = { 1.010084827f,394.4224824f,17730.25353f,
 	    -70759.63938f };
 
     /* System generated locals */
-    real ret_val, r__1, r__2, r__3;
+    double ret_val, r__1, r__2, r__3;
 
     /* Builtin functions */
-    double exp(doublereal), log(doublereal);
+    double exp(double), log(double);
 
     /* Local variables */
-    static real u, v;
+    static double u, v;
 
     if (*xi <= 0.f) {
 	ret_val = 0.f;

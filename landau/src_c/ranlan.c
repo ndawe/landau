@@ -10,8 +10,7 @@
 		http://www.netlib.org/f2c/libf2c.zip
 */
 
-#include "f2c.h"
-
+#include <math.h>
 
 /* $Id: ranlan.F,v 1.1.1.1 1996/04/01 15:02:43 mclareni Exp $ */
 
@@ -21,11 +20,11 @@
 
 
 /*     This will be RANLAN,IF=DOUBLE and RANLAN64,IF=-DOUBLE */
-doublereal ranlan_(real *x)
+double ranlan_(double *x)
 {
     /* Initialized data */
 
-    static real f[977] = { -2.244733f,-2.204365f,-2.168163f,-2.135219f,
+    static double f[977] = { -2.244733f,-2.204365f,-2.168163f,-2.135219f,
 	    -2.104898f,-2.07674f,-2.050397f,-2.025605f,-2.00215f,-1.979866f,
 	    -1.958612f,-1.938275f,-1.91876f,-1.899984f,-1.881879f,-1.864385f,
 	    -1.847451f,-1.83103f,-1.815083f,-1.799574f,-1.784473f,-1.769751f,
@@ -187,14 +186,11 @@ doublereal ranlan_(real *x)
 	    59.103894f };
 
     /* System generated locals */
-    real ret_val, r__1;
-
-    /* Builtin functions */
-    double log(doublereal);
+    double ret_val, r__1;
 
     /* Local variables */
     static integer i__;
-    static real u, v;
+    static double u, v;
 
     u = 1000 * *x;
     i__ = u;

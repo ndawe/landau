@@ -10,11 +10,11 @@
 		http://www.netlib.org/f2c/libf2c.zip
 */
 
-#include "f2c.h"
+#include <math.h>
 
 /* Table of constant values */
 
-static doublereal c_b2 = 1.5;
+static double c_b2 = 1.5;
 
 
 /* $Id: diflan.F,v 1.1.1.1 1996/04/01 15:02:43 mclareni Exp $ */
@@ -25,52 +25,48 @@ static doublereal c_b2 = 1.5;
 
 
 /*     This will be DIFLAN,IF=DOUBLE and DIFLAN64,IF=-DOUBLE */
-doublereal diflan_(real *x, real *x0, real *xi)
+double diflan_(real *x, real *x0, real *xi)
 {
     /* Initialized data */
 
-    static real p1[5] = { -.03062016156f,-.1251424734f,-.0955142054f,
+    static double p1[5] = { -.03062016156f,-.1251424734f,-.0955142054f,
 	    -.02694356206f,-.002617552485f };
-    static real q5[5] = { 1.f,.9000329289f,34.61966768f,4.666893094f,
+    static double q5[5] = { 1.f,.9000329289f,34.61966768f,4.666893094f,
 	    192.6464264f };
-    static real p6[5] = { -2.012496309f,-274.8432206f,-5759.040086f,
+    static double p6[5] = { -2.012496309f,-274.8432206f,-5759.040086f,
 	    -16000.68673f,53346.52087f };
-    static real q6[5] = { 1.f,122.9570501f,1874.682285f,5678.02513f,
+    static double q6[5] = { 1.f,122.9570501f,1874.682285f,5678.02513f,
 	    52823.54475f };
-    static real p7[6] = { -2.001584932f,-2407.420185f,-545666.9704f,
+    static double p7[6] = { -2.001584932f,-2407.420185f,-545666.9704f,
 	    -28170170.48f,-206439298.2f,904960599.4f };
-    static real q7[6] = { 1.f,1182.929609f,255229.9337f,11392057.96f,
+    static double q7[6] = { 1.f,1182.929609f,255229.9337f,11392057.96f,
 	    39347020.81f,210806908.7f };
-    static real a1[6] = { -.4583333333f,8.680555556e-4f,-.002852527006f,
+    static double a1[6] = { -.4583333333f,8.680555556e-4f,-.002852527006f,
 	    .005386892562f,-.01431207031f,.05062996176f };
-    static real a2[3] = { -7.536706011f,-9.601856962f,171.4615239f };
-    static real q1[5] = { 1.f,1.177746655f,.613099399f,.1572703422f,
+    static double a2[3] = { -7.536706011f,-9.601856962f,171.4615239f };
+    static double q1[5] = { 1.f,1.177746655f,.613099399f,.1572703422f,
 	    .01726295027f };
-    static real p2[5] = { -.01549126548f,-.07551222105f,-.02598623886f,
+    static double p2[5] = { -.01549126548f,-.07551222105f,-.02598623886f,
 	    .005471270049f,.002152270275f };
-    static real q2[5] = { 1.f,.9997460723f,.4988264176f,.1289104987f,
+    static double q2[5] = { 1.f,.9997460723f,.4988264176f,.1289104987f,
 	    .0163963253f };
-    static real p3[5] = { -.01547135743f,-.07304184799f,-.01534151353f,
+    static double p3[5] = { -.01547135743f,-.07304184799f,-.01534151353f,
 	    .003568780079f,-9.296196751e-5f };
-    static real q3[5] = { 1.f,.8394107748f,.412803683f,.1050222892f,
+    static double q3[5] = { 1.f,.8394107748f,.412803683f,.1050222892f,
 	    .0170089465f };
-    static real p4[5] = { -.01546273317f,-.06856127408f,.004611267324f,
+    static double p4[5] = { -.01546273317f,-.06856127408f,.004611267324f,
 	    -2.549945537e-4f,5.876190635e-6f };
-    static real q4[5] = { 1.f,.5453266037f,.2802511577f,.04749121515f,
+    static double q4[5] = { 1.f,.5453266037f,.2802511577f,.04749121515f,
 	    .01096278827f };
-    static real p5[5] = { 8.642027131e-6f,-7.474291951e-4f,.02935678494f,
+    static double p5[5] = { 8.642027131e-6f,-7.474291951e-4f,.02935678494f,
 	    -2.769695199f,-7.769542153f };
 
     /* System generated locals */
-    real ret_val, r__1;
-    doublereal d__1;
-
-    /* Builtin functions */
-    double exp(doublereal), pow_dd(doublereal *, doublereal *), log(
-	    doublereal);
+    double ret_val, r__1;
+    double d__1;
 
     /* Local variables */
-    static real u, v;
+    static double u, v;
 
     if (*xi <= 0.f) {
 	ret_val = 0.f;
@@ -79,8 +75,8 @@ doublereal diflan_(real *x, real *x0, real *xi)
     v = (*x - *x0) / *xi;
     if (v < -2.6f) {
 	u = exp(v + 1);
-	d__1 = (doublereal) u;
-	ret_val = exp(-1 / u) / pow_dd(&d__1, &c_b2) * .3989422803f * ((a1[0] 
+	d__1 = (double) u;
+	ret_val = exp(-1 / u) / pow(d__1, c_b2) * .3989422803f * ((a1[0] 
 		+ (a1[1] + (a1[2] + (a1[3] + (a1[4] + a1[5] * u) * u) * u) * 
 		u) * u) * u + 1);
     } else if (v < -1.75f) {
