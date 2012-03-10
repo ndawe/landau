@@ -14,8 +14,8 @@ from landau import *
 X = np.arange(0, 10, .001)
 
 plt.figure()
-plt.plot(X, diflan(X, args.m, args.c), label="diflan")
 plt.plot(X, denlan(X, args.m, args.c), label="denlan")
+plt.plot(X, diflan(X, args.m, args.c), label="diflan")
 plt.legend()
 
 plt.figure()
