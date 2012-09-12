@@ -33,9 +33,8 @@ plt.figure()
 plt.plot(X, invcumlan(X, args.m, args.c), label="invcumlan")
 plt.legend()
 
-
 plt.figure()
-plt.hist(invcumlan(np.random.random_sample(100000), args.m, args.c), bins=100,
-        range=(0, 10))
-
+plt.hist(invcumlan(np.random.random_sample(1000000), args.m, args.c), bins=100,
+        range=(0, 10),
+        normed=True)
 plt.show()
